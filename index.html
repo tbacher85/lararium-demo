@@ -239,7 +239,7 @@
             font-size: 1.5rem;
         }
         
-        /* Modal for educational content */
+        /* Modal for educational content - Fixed for mobile */
         .modal {
             display: none;
             position: fixed;
@@ -251,6 +251,8 @@
             z-index: 1000;
             align-items: center;
             justify-content: center;
+            padding: 15px;
+            overflow-y: auto;
         }
         
         .modal-content {
@@ -258,12 +260,14 @@
             padding: 2.5rem;
             border-radius: 5px;
             max-width: 600px;
-            width: 90%;
+            width: 100%;
             position: relative;
             box-shadow: 0 20px 50px rgba(0,0,0,0.5);
             animation: modalFade 0.3s ease;
             border: 1px solid var(--accent);
             font-family: 'Cinzel', serif;
+            overflow-wrap: break-word;
+            word-wrap: break-word;
         }
         
         @keyframes modalFade {
@@ -302,6 +306,7 @@
             box-shadow: 0 5px 15px rgba(0,0,0,0.1);
             margin-top: 2rem;
             border: 1px solid var(--accent);
+            overflow-x: auto;
         }
         
         .calendar-grid {
@@ -309,6 +314,7 @@
             grid-template-columns: repeat(7, 1fr);
             gap: 8px;
             margin-top: 1.5rem;
+            min-width: 300px;
         }
         
         .calendar-day {
@@ -508,58 +514,6 @@
             font-family: 'Cinzel', serif;
         }
         
-        /* Responsive Design */
-        @media (max-width: 1024px) {
-            .educational-buttons {
-                grid-template-columns: repeat(2, 1fr);
-            }
-            
-            .features {
-                grid-template-columns: repeat(2, 1fr);
-            }
-            
-            .pantheon-grid {
-                grid-template-columns: repeat(5, 1fr);
-            }
-        }
-        
-        @media (max-width: 768px) {
-            .hero {
-                flex-direction: column;
-                text-align: center;
-            }
-            
-            .hero h1 {
-                font-size: 2.5rem;
-            }
-            
-            .educational-buttons {
-                grid-template-columns: 1fr;
-            }
-            
-            .features {
-                grid-template-columns: 1fr;
-            }
-            
-            .pantheon-grid {
-                grid-template-columns: repeat(3, 1fr);
-            }
-            
-            .form-group {
-                flex-direction: column;
-            }
-            
-            nav ul {
-                display: none;
-            }
-        }
-        
-        @media (max-width: 480px) {
-            .pantheon-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
-        
         /* Ancient decorative elements */
         .roman-border {
             border: 2px solid var(--gold);
@@ -624,6 +578,107 @@
             font-size: 2rem;
             color: var(--primary);
             margin-bottom: 0.5rem;
+        }
+        
+        /* Responsive Design - Updated with fixes for mobile */
+        @media (max-width: 1024px) {
+            .educational-buttons {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .features {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .pantheon-grid {
+                grid-template-columns: repeat(5, 1fr);
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .hero {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .educational-buttons {
+                grid-template-columns: 1fr;
+            }
+            
+            .features {
+                grid-template-columns: 1fr;
+            }
+            
+            .pantheon-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+            
+            .form-group {
+                flex-direction: column;
+            }
+            
+            nav ul {
+                display: none;
+            }
+            
+            /* Mobile fixes for modals */
+            .modal-content {
+                padding: 2rem 1.5rem;
+                margin: 20px;
+                max-width: calc(100% - 40px);
+            }
+            
+            /* Mobile fixes for calendar */
+            .calendar-preview {
+                padding: 1.5rem;
+            }
+            
+            .calendar-grid {
+                gap: 5px;
+                min-width: 280px;
+            }
+            
+            .calendar-day {
+                padding: 8px 3px;
+                font-size: 0.9rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .pantheon-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .modal-content {
+                padding: 1.5rem 1rem;
+                margin: 15px;
+                max-width: calc(100% - 30px);
+            }
+            
+            .section-title {
+                font-size: 1.8rem;
+            }
+            
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .hero p {
+                font-size: 1rem;
+            }
+            
+            .calendar-grid {
+                min-width: 260px;
+            }
+            
+            .calendar-day {
+                padding: 6px 2px;
+                font-size: 0.8rem;
+            }
         }
     </style>
 </head>
